@@ -1,0 +1,13 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const switcher = document.getElementById('theme-switcher');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    switcher.addEventListener('click', function (e) {
+        const theme = e.target.getAttribute('data-theme');
+        if (theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+    });
+});
